@@ -1,3 +1,4 @@
 {
-  "cmake.sourceDirectory": "C:/ashik/advanced/fashion_app/linux"
+  "cmake.sourceDirectory": "C:/ashik/advanced/fashion_app/linux",
+  "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

@@ -1,8 +1,8 @@
 import 'package:fashion_app/common/utils/app_routes.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
+import 'package:fashion_app/src/entrypoint/controllers/bottom_tab_notifer.dart';
 import 'package:fashion_app/src/onboarding/controllers/onboarding_notifier.dart';
-import 'package:fashion_app/src/onboarding/views/onboarding.dart';
 import 'package:fashion_app/src/splshscreen/viwes/splshscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -12,13 +12,18 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //  load the correct enviornment
+  //load the correct environment
+
   await dotenv.load(fileName: Environment.fileName);
+
   await GetStorage.init();
-  runApp( MultiProvider(providers: [
-    ChangeNotifierProvider(create:(context) => OnboardingNotifier(), )
-  ],
-  child: MyApp()));
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => OnboardingNotifier()),
+      ChangeNotifierProvider(create: (_) => TabIndexNotifer()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -29,23 +34,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return ScreenUtilInit(
-      designSize: screenSize,
-      minTextAdapt: true,
-      splitScreenMode: false,
-      useInheritedMediaQuery: true,
-      builder: (_, child) {
-        return MaterialApp.router(
-          title: AppText.kAppName,
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          routerConfig: router,
-        );
-      },
-      child: const SplashScreen(),
-    );
+        designSize: screenSize,
+        minTextAdapt: true,
+        splitScreenMode: false,
+        useInheritedMediaQuery: true,
+        builder: (_, child) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: AppText.kAppName,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            routerConfig: router,
+          );
+        },
+        child: const SplashScreen());
   }
 }
 
@@ -78,9 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              Environment.apiKey,
-            ),
+            Text(Environment.appBaseUrl),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -92,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
