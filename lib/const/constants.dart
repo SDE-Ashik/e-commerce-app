@@ -1,7 +1,6 @@
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/const/resource.dart';
-import 'package:fashion_app/src/categories/models/categories_model.dart';
-import 'package:fashion_app/src/products/models/products_model.dart';
+
 import 'package:flutter/material.dart';
 
 LinearGradient kGradient = const LinearGradient(
@@ -54,7 +53,7 @@ Widget Function(BuildContext, String)? placeholder = (p0, p1) => Image.asset(
       R.ASSETS_IMAGES_PLACEHOLDER_WEBP,
       fit: BoxFit.cover,
     );
-
+    
 Widget Function(BuildContext, String, Object)? errorWidget =
     (p0, p1, p3) => Image.asset(
           R.ASSETS_IMAGES_PLACEHOLDER_WEBP,

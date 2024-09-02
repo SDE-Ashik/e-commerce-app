@@ -20,7 +20,7 @@ Future<dynamic> logoutBottomSheet(BuildContext context) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientBtn(
+                  CustomButton(
                     text: "Cancel",
                     borderColor: Kolors.kDark,
                     btnColor: Kolors.kWhite,

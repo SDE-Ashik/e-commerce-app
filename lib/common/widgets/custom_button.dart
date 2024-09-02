@@ -5,8 +5,8 @@ import 'package:fashion_app/common/widgets/reusable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GradientBtn extends StatelessWidget {
-  const GradientBtn({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
     this.onTap,
     this.btnWidth,
