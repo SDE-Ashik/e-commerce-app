@@ -1,6 +1,7 @@
 import 'package:fashion_app/common/utils/app_routes.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
+import 'package:fashion_app/src/categories/controllers/category_notifier.dart';
 import 'package:fashion_app/src/entrypoint/controllers/bottom_tab_notifer.dart';
 import 'package:fashion_app/src/onboarding/controllers/onboarding_notifier.dart';
 import 'package:fashion_app/src/splshscreen/viwes/splshscreen.dart';
@@ -21,6 +22,7 @@ void main() async {
     providers: [
       ChangeNotifierProvider(create: (_) => OnboardingNotifier()),
       ChangeNotifierProvider(create: (_) => TabIndexNotifer()),
+      ChangeNotifierProvider(create: (_)=>CategoryNotifier()),
     ],
     child: const MyApp(),
   ));

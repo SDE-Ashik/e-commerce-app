@@ -29,7 +29,7 @@ Future<dynamic> logoutBottomSheet(BuildContext context) {
                     radius: 16,
                     btnWidth: ScreenUtil().screenWidth / 2.2,
                   ),
-                  GradientBtn(
+                CustomButton  (
                     text: "Submit",
                     onTap: () {
                      
