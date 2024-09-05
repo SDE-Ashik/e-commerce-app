@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WishlistPage extends StatelessWidget {
-  const WishlistPage({super.key});
+class WishListPage extends StatelessWidget {
+  const WishListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Wishlist  Page"),
+        child: Text("WishList "),
       ),
     );
   }

@@ -1,4 +1,3 @@
-import 'package:fashion_app/common/utils/app_routes.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
@@ -15,17 +14,15 @@ class HomeHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ReusableText(
-          text: AppText.kCategories,
-          style: appStyle(13, Kolors.kDark, FontWeight.w600),
-        ),
+            text: AppText.kCategories,
+            style: appStyle(13, Kolors.kDark, FontWeight.w600)),
         GestureDetector(
           onTap: () {
-            context.push('/category');
+            context.push('/categories');
           },
           child: ReusableText(
-            text: AppText.kViewAll,
-            style: appStyle(13, Kolors.kDark, FontWeight.w600),
-          ),
+              text: AppText.kViewAll,
+              style: appStyle(13, Kolors.kGray, FontWeight.normal)),
         )
       ],
     );

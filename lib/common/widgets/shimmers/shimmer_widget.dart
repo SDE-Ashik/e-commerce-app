@@ -5,11 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerWidget extends StatelessWidget {
-  const ShimmerWidget(
-      {super.key,
-      required this.shimmerWidth,
-      required this.shimmerHieght,
-      required this.shimmerRadius});
+  const ShimmerWidget({super.key, required this.shimmerWidth, required this.shimmerHieght, required this.shimmerRadius});
 
   final double shimmerWidth;
   final double shimmerHieght;
@@ -20,8 +16,7 @@ class ShimmerWidget extends StatelessWidget {
     return SizedBox(
       width: shimmerWidth,
       height: shimmerHieght,
-      child: _buildShimmerLine(
-          height: shimmerHieght, width: shimmerHieght, radius: shimmerRadius),
+      child: _buildShimmerLine(height: shimmerHieght, width: shimmerHieght, radius: shimmerRadius),
     );
   }
 

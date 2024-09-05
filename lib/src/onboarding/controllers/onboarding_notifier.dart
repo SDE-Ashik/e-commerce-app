@@ -1,12 +1,12 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class OnboardingNotifier with ChangeNotifier {
-  int _selectdPage = 0;
-  int get selectedPage => _selectdPage;
+  int _selectedPage = 0;
+
+  int get selectedPage => _selectedPage;
 
   set setSelectedPage(int page) {
-    _selectdPage = page;
-    print(page);
+    _selectedPage = page;
     notifyListeners();
   }
 }

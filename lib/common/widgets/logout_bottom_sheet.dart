@@ -1,5 +1,3 @@
-
-import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
@@ -58,7 +56,7 @@ Future<dynamic> logoutBottomSheet(BuildContext context) {
                     radius: 16,
                     btnWidth: ScreenUtil().screenWidth / 2.2,
                   ),
-                 CustomButton(
+                  CustomButton(
                     text: "Yes, Logout",
                     onTap: () {
                       // Storage().removeKey('accessToken');

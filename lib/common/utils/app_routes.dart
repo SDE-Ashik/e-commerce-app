@@ -1,5 +1,3 @@
-// ignore_for_file: unused_element
-
 import 'package:fashion_app/src/auth/views/login_screen.dart';
 import 'package:fashion_app/src/categories/views/categories_screen.dart';
 import 'package:fashion_app/src/categories/views/category_page.dart';
@@ -7,14 +5,15 @@ import 'package:fashion_app/src/entrypoint/views/entrypoint.dart';
 import 'package:fashion_app/src/notification/views/notification_screen.dart';
 import 'package:fashion_app/src/onboarding/views/onboarding_screen.dart';
 import 'package:fashion_app/src/search/views/search_screen.dart';
-import 'package:fashion_app/src/splshscreen/viwes/splshscreen.dart';
+import 'package:fashion_app/src/splashscreen/views/splashscreen_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+
 final GoRouter _router = GoRouter(
-   navigatorKey: navigatorKey,
+  navigatorKey: navigatorKey,
   initialLocation: '/',
   routes: [
     GoRoute(
@@ -23,23 +22,12 @@ final GoRouter _router = GoRouter(
     ),
     GoRoute(
       path: '/home',
-      builder: (context, state) => AppEntryPoint(),
+      builder: (context, state) =>  AppEntryPoint(),
     ),
-     GoRoute(path: '/onboarding',
-    builder: (context, state) => const OnBoardingScreen(),),
-    GoRoute(path: '/login',
-    builder: (context,state)=> const LoginPage(),),
-    GoRoute(path: '/notifications',
-    builder: (context, state) => const NotificationsPage(),),
-    GoRoute(path: '/search',
-    builder: (context, state) => const SearchPage(),)
-    ,GoRoute(path: '/category',
-    builder: (context, state) =>const CategoryPage(),),
-    
-    // GoRoute(
-    //   path: '/onboarding',
-    //   builder: (context, state) => const OnBoardingScreen(),
-    // ),
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, state) => const OnBoardingScreen(),
+    ),
     // GoRoute(
     //   path: '/review',
     //   builder: (context, state) => const ReviewsPage(),
@@ -52,10 +40,10 @@ final GoRouter _router = GoRouter(
     //   path: '/verification',
     //   builder: (context, state) => const VerificationPage(),
     // ),
-    // GoRoute(
-    //   path: '/search',
-    //   builder: (context, state) => const SearchPage(),
-    // ),
+    GoRoute(
+      path: '/search',
+      builder: (context, state) => const SearchPage(),
+    ),
     // GoRoute(
     //   path: '/help',
     //   builder: (context, state) => const HelpCenterPage(),
@@ -64,22 +52,22 @@ final GoRouter _router = GoRouter(
     //   path: '/orders',
     //   builder: (context, state) => const OrdersPage(),
     // ),
-    // GoRoute(
-    //   path: '/login',
-    //   builder: (context, state) => const LoginPage(),
-    // ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginPage(),
+    ),
     // GoRoute(
     //   path: '/register',
     //   builder: (context, state) => const RegistrationPage(),
     // ),
-    // GoRoute(
-    //   path: '/categories',
-    //   builder: (context, state) => const CategoriesPage(),
-    // ),
-    //  GoRoute(
-    //   path: '/category',
-    //   builder: (context, state) => const CategoryPage(),
-    // ),
+    GoRoute(
+      path: '/categories',
+      builder: (context, state) => const CategoriesPage(),
+    ),
+     GoRoute(
+      path: '/category',
+      builder: (context, state) => const CategoryPage(),
+    ),
 
     // GoRoute(
     //   path: '/addaddress',
@@ -91,10 +79,10 @@ final GoRouter _router = GoRouter(
     //   builder: (context, state) => const AddressesListPage(),
     // ),
 
-    //  GoRoute(
-    //   path: '/notifications',
-    //   builder: (context, state) => const NotificationPage(),
-    // ),
+     GoRoute(
+      path: '/notifications',
+      builder: (context, state) => const NotificationsPage(),
+    ),
 
     //  GoRoute(
     //   path: '/tracking',
@@ -127,35 +115,3 @@ final GoRouter _router = GoRouter(
 );
 
 GoRouter get router => _router;
-
-
-// import 'package:fashion_app/src/auth/views/login_screen.dart';
-// import 'package:fashion_app/src/entrypoint/views/entrypoint.dart';
-// import 'package:fashion_app/src/onboarding/views/onboarding_screen.dart';
-// import 'package:fashion_app/src/splshscreen/viwes/splshscreen.dart';
-// import 'package:flutter/material.dart';
-// import 'package:go_router/go_router.dart';
-
-// final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-// final GoRouter _router = GoRouter(
-//   navigatorKey: navigatorKey,
-//   initialLocation: '/',
-//   routes: [
-//     GoRoute(
-//       path: '/',
-//       builder: (context, state) => const SplashScreen(),
-//     ),
-//     GoRoute(
-//       path: '/home',
-    
-//       builder: (context, state) => const AppEntryPoint(),
-//     ),
-//     GoRoute(path: '/onboarding',
-//     builder: (context, state) => const OnBoardingScreen(),),
-//     GoRoute(path: '/login',
-//     builder: (context,state)=> const LoginPage(),)
-//   ],
-// );
-
-// // get private router so used get 
-// GoRouter get router => _router;

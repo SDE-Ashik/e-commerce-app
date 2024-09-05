@@ -1,4 +1,3 @@
-
 import 'package:fashion_app/common/widgets/shimmers/shimmer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

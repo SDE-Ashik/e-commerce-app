@@ -1,6 +1,3 @@
-// // ignore_for_file: use_super_parameters
-
-
 // import 'package:fashion_app/common/utils/kcolors.dart';
 // import 'package:fashion_app/common/widgets/app_style.dart';
 // import 'package:flutter/cupertino.dart';

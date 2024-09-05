@@ -8,9 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class OnboardingScreenTwo extends StatelessWidget {
   const OnboardingScreenTwo({super.key});
 
-  @override
+ @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: ScreenUtil().screenWidth,
       height: ScreenUtil().screenHeight,
       child: Stack(
@@ -20,15 +20,14 @@ class OnboardingScreenTwo extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Positioned(
-            bottom: 200,
-            left: 30,
-            right: 30,
-            child: Text(
-              AppText.kOnboardWishListMessage,
-              textAlign: TextAlign.center,
-              style: appStyle(13, Kolors.kGray, FontWeight.normal),
-            ),
-          )
+              bottom: 200,
+              left: 30,
+              right: 30,
+              child: Text(
+                AppText.kOnboardWishListMessage,
+                textAlign: TextAlign.center,
+                style: appStyle(11, Kolors.kGray, FontWeight.normal),
+              ))
         ],
       ),
     );
