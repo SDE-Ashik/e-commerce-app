@@ -5,6 +5,8 @@ import 'package:fashion_app/src/categories/controllers/category_notifier.dart';
 import 'package:fashion_app/src/entrypoint/controllers/bottom_tab_notifier.dart';
 import 'package:fashion_app/src/home/controllers/home_tab_notifer.dart';
 import 'package:fashion_app/src/onboarding/controllers/onboarding_notifier.dart';
+import 'package:fashion_app/src/products/controllers/colors_sizes_notifier.dart';
+import 'package:fashion_app/src/products/controllers/product_notifer.dart';
 import 'package:fashion_app/src/splashscreen/views/splashscreen_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -25,6 +27,8 @@ void main() async {
      ChangeNotifierProvider(create: (_) => TabIndexNotifier()),
      ChangeNotifierProvider(create: (_) => CategoryNotifier()),
     ChangeNotifierProvider(create: (_)=> HomeTabNotifier()),
+    ChangeNotifierProvider(create: (_)=> ProductNotifer()),
+    ChangeNotifierProvider(create: (_)=>ColorsSizeNotifier()),
     ],
      child: const MyApp(),
   ));
