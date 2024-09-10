@@ -1,5 +1,3 @@
-
-import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
@@ -49,7 +47,7 @@ Future<dynamic> logoutBottomSheet(BuildContext context) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientBtn(
+                  CustomButton(
                     text: "Cancel",
                     borderColor: Kolors.kDark,
                     btnColor: Kolors.kWhite,
@@ -58,7 +56,7 @@ Future<dynamic> logoutBottomSheet(BuildContext context) {
                     radius: 16,
                     btnWidth: ScreenUtil().screenWidth / 2.2,
                   ),
-                  GradientBtn(
+                  CustomButton(
                     text: "Yes, Logout",
                     onTap: () {
                       // Storage().removeKey('accessToken');

@@ -1,4 +1,3 @@
-
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
@@ -45,7 +44,7 @@ Future<dynamic> loginBottomSheet(BuildContext context) {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: GradientBtn(
+              child: CustomButton(
                 text: "Proceed to Login",
                 onTap: () {
                   context.go("/login");

@@ -1,4 +1,3 @@
-
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/widgets/custom_button.dart';
 import 'package:fashion_app/const/constants.dart';
@@ -20,7 +19,7 @@ Future<dynamic> logoutBottomSheet(BuildContext context) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientBtn(
+                  CustomButton(
                     text: "Cancel",
                     borderColor: Kolors.kDark,
                     btnColor: Kolors.kWhite,
@@ -29,7 +28,7 @@ Future<dynamic> logoutBottomSheet(BuildContext context) {
                     radius: 16,
                     btnWidth: ScreenUtil().screenWidth / 2.2,
                   ),
-                  GradientBtn(
+                  CustomButton(
                     text: "Submit",
                     onTap: () {
                      

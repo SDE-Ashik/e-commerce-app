@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:flutter/material.dart';
-
+import 'package:shimmer/shimmer.dart';
 
 class ShimmerWidget extends StatelessWidget {
   const ShimmerWidget({super.key, required this.shimmerWidth, required this.shimmerHieght, required this.shimmerRadius});

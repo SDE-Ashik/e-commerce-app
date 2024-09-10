@@ -1,4 +1,3 @@
-import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
@@ -47,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
-          GradientBtn(
+          CustomButton(
             text: AppText.kGetStarted,
             btnHieght: 35,
             radius: 20,
@@ -70,8 +69,8 @@ class WelcomeScreen extends StatelessWidget {
                   style: appStyle(12, Kolors.kDark, FontWeight.normal)),
               TextButton(
                   onPressed: () {
-                    //navigate to login page
-                    context.go('/login');
+                    //navigate to login page 
+                     context.go('/login');
                   },
                   child: const Text(
                     "Sign In",

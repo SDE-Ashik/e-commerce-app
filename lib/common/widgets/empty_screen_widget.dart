@@ -1,6 +1,5 @@
 // ignore_for_file: unused_local_variable
 
-
 import 'package:fashion_app/const/resource.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
