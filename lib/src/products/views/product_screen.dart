@@ -202,7 +202,7 @@ class ProductPage extends StatelessWidget {
         ),
         bottomNavigationBar: ProductBottomBar(
           onPressed: () {
-            if (accessToken == null) {
+            if (accessToken != null) {
               loginBottomSheet(context);
             } else {
               if (context.read<ColorsSizeNotifier>().color == '' ||
