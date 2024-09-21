@@ -34,7 +34,8 @@ class SimilarProducts extends StatelessWidget {
                     }
                   },
                   i: i,
-                  product: product));
+                  product: product)
+                  );
         }),
       ),
     );

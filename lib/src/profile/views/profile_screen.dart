@@ -1,3 +1,4 @@
+import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/app_routes.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
@@ -5,6 +6,7 @@ import 'package:fashion_app/common/widgets/app_style.dart';
 import 'package:fashion_app/common/widgets/custom_button.dart';
 import 'package:fashion_app/common/widgets/help_bottom_sheet.dart';
 import 'package:fashion_app/common/widgets/reusable_text.dart';
+import 'package:fashion_app/src/auth/views/login_screen.dart';
 import 'package:fashion_app/src/profile/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +18,11 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? accessToken = Storage().getString('accessToken');
+    if (accessToken == null) {
+      return const LoginPage();
+      
+    }
     return Scaffold(
         body: ListView(
       children: [
@@ -33,7 +40,7 @@ class ProfilePage extends StatelessWidget {
               height: 15.h,
             ),
             ReusableText(
-              text: "ashik@gmail.com",
+              text: "samuelohn@gmail.com",
               style: appStyle(12, Kolors.kGray, FontWeight.normal),
             ),
             SizedBox(
@@ -42,7 +49,7 @@ class ProfilePage extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: ReusableText(
-                text: "Ashik",
+                text: "samuel john",
                 style: appStyle(14, Kolors.kDark, FontWeight.w600),
               ),
               decoration: BoxDecoration(
