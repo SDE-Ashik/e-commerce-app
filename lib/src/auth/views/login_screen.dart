@@ -1,14 +1,16 @@
-import 'package:fashion_app/common/utils/app_routes.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
 import 'package:fashion_app/common/widgets/back_button.dart';
 import 'package:fashion_app/common/widgets/custom_button.dart';
 import 'package:fashion_app/common/widgets/email_textfield.dart';
 import 'package:fashion_app/common/widgets/password_field.dart';
+import 'package:fashion_app/src/auth/controllers/auth_notifier.dart';
+import 'package:fashion_app/src/auth/models/login_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,7 +24,9 @@ class _LoginPageState extends State<LoginPage> {
       TextEditingController();
   late final TextEditingController _passwordController =
       TextEditingController();
+
   final FocusNode _passwordNode = FocusNode();
+
   @override
   void dispose() {
     _usernameController.dispose();
@@ -36,54 +40,54 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: AppBackButton(
-            onTap: () {
-              context.go('/home');
-            },
-          ),
-          elevation: 0),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: AppBackButton(
+          onTap: () {
+            context.go('/home');
+          },
+        ),
+      ),
       body: ListView(
         children: [
           SizedBox(
             height: 160.h,
           ),
           Text(
+            "Dbest Fashions",
             textAlign: TextAlign.center,
-            "Stylio",
             style: appStyle(24, Kolors.kPrimary, FontWeight.bold),
           ),
           SizedBox(
             height: 10.h,
           ),
           Text(
-            textAlign: TextAlign.center,
             "Hi! Welcome back. You've been missed",
+            textAlign: TextAlign.center,
             style: appStyle(13, Kolors.kGray, FontWeight.normal),
           ),
           SizedBox(
             height: 25.h,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 20.w,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Column(
               children: [
                 EmailTextField(
-                    radius: 25,
-                    focusNode: _passwordNode,
-                    hintText: "Username",
-                    controller: _usernameController,
-                    prefixIcon: Icon(
-                      CupertinoIcons.profile_circled,
-                      size: 20,
-                      color: Kolors.kGray,
-                    ),
-                    keyboardType: TextInputType.name,
-                    onEditingComplete: () {
-                      FocusScope.of(context).requestFocus(_passwordNode);
-                    }),
+                  radius: 25,
+                  focusNode: _passwordNode,
+                  hintText: "Username",
+                  controller: _usernameController,
+                  prefixIcon: const Icon(
+                    CupertinoIcons.profile_circled,
+                    size: 20,
+                    color: Kolors.kGray,
+                  ),
+                  keyboardType: TextInputType.name,
+                  onEditingComplete: () {
+                    FocusScope.of(context).requestFocus(_passwordNode);
+                  },
+                ),
                 SizedBox(
                   height: 25.h,
                 ),
@@ -93,16 +97,33 @@ class _LoginPageState extends State<LoginPage> {
                   radius: 25,
                 ),
                 SizedBox(
-                  height: 25.h,
+                  height: 20.h,
                 ),
-                CustomButton(
-                  text: "L O G I N",
-                  btnWidth: ScreenUtil().screenWidth,
-                  btnHieght: 40,
-                  radius: 20,
-                  onTap: () {},
-                ),
-                // CustomButton(text: "Login")
+                context.watch<AuthNotifier>().isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                          backgroundColor: Kolors.kPrimary,
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Kolors.kWhite),
+                        ),
+                      )
+                    : CustomButton(
+                        onTap: () {
+                          LoginModel model = LoginModel(
+                              password: _passwordController.text,
+                              username: _usernameController.text);
+
+                          String data = loginModelToJson(model);
+
+                          print(data);
+                          context.read<AuthNotifier>().loginFunc(data, context);
+                          print("open");
+                        },
+                        text: "L  O  G  I  N",
+                        btnWidth: ScreenUtil().screenWidth,
+                        btnHieght: 40,
+                        radius: 20,
+                      )
               ],
             ),
           )
@@ -112,13 +133,13 @@ class _LoginPageState extends State<LoginPage> {
         height: 130.h,
         child: Center(
           child: Padding(
-            padding: EdgeInsets.only(bottom: 110),
+            padding: const EdgeInsets.only(bottom: 110.0),
             child: GestureDetector(
               onTap: () {
                 context.push('/register');
               },
               child: Text(
-                "Do not habe an account? Register a new one.",
+                'Do not have an account? Register a new one',
                 style: appStyle(12, Colors.blue, FontWeight.normal),
               ),
             ),

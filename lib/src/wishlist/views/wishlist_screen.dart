@@ -1,3 +1,4 @@
+
 import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/utils/kstrings.dart';
@@ -12,17 +13,20 @@ class WishListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      String? accessToken = Storage().getString('accessToken');
+     String? accessToken = Storage().getString('accessToken');
+
     if (accessToken == null) {
       return const LoginPage();
     }
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: ReusableText(text: AppText.kWishlist, style: appStyle(16, Kolors.kPrimary, FontWeight.bold),),
+        title: ReusableText(text: AppText.kWishlist, style: appStyle(16, Kolors.kPrimary, FontWeight.bold)),
       ),
-      body: Padding(padding: const EdgeInsets.all(8),
-      child: const ExploreProducts(),)
+      body: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: ExploreProducts(),
+      ),
     );
   }
 }

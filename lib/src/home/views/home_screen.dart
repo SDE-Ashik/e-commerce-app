@@ -1,4 +1,4 @@
-import 'package:fashion_app/src/home/controllers/home_tab_notifer.dart';
+import 'package:fashion_app/src/home/controllers/home_tab_notifier.dart';
 import 'package:fashion_app/src/home/widgets/categories_list.dart';
 import 'package:fashion_app/src/home/widgets/custom_app_bar.dart';
 import 'package:fashion_app/src/home/widgets/home_header.dart';
@@ -6,7 +6,7 @@ import 'package:fashion_app/src/home/widgets/home_slider.dart';
 import 'package:fashion_app/src/home/widgets/home_tabs.dart';
 import 'package:fashion_app/src/products/widgets/explore_products.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -19,17 +19,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late final TabController _tabController;
+
   int _currentTabIndex = 0;
+
   @override
   void initState() {
     _tabController = TabController(length: homeTabs.length, vsync: this);
+
     _tabController.addListener(_handleSelection);
-    // TODO: implement initState
     super.initState();
   }
 
   void _handleSelection() {
     final controller = Provider.of<HomeTabNotifier>(context, listen: false);
+
     if (_tabController.indexIsChanging) {
       setState(() {
         _currentTabIndex = _tabController.index;
@@ -42,7 +45,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void dispose() {
     _tabController.removeListener(_handleSelection);
     _tabController.dispose();
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -68,16 +70,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             height: 10.h,
           ),
           const HomeCategoriesList(),
+
           SizedBox(
             height: 15.h,
           ),
 
           HomeTabs(tabController: _tabController),
-            SizedBox(
+
+           SizedBox(
             height: 15.h,
           ),
-         const  ExploreProducts(),
-         SizedBox(height: 100.h,)
+
+          const ExploreProducts(),
+
+           SizedBox(
+            height: 100.h,
+          ),
+
         ],
       ),
     );

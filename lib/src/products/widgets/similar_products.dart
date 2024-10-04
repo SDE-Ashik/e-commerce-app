@@ -1,5 +1,4 @@
 import 'package:fashion_app/common/services/storage.dart';
-import 'package:fashion_app/common/widgets/app_style.dart';
 import 'package:fashion_app/common/widgets/login_bottom_sheet.dart';
 import 'package:fashion_app/const/constants.dart';
 import 'package:fashion_app/src/products/widgets/staggered_tile_widget.dart';
@@ -16,9 +15,9 @@ class SimilarProducts extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(8.h),
       child: StaggeredGrid.count(
-        crossAxisCount: 4,
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
+        crossAxisCount: 4,
         children: List.generate(products.length, (i) {
           final double mainAxisCellCount = (i % 2 == 0 ? 2.17 : 2.4);
           final product = products[i];
@@ -26,19 +25,18 @@ class SimilarProducts extends StatelessWidget {
               crossAxisCellCount: 2,
               mainAxisCellCount: mainAxisCellCount,
               child: StaggeredTileWidget(
-                  onTap: () {
-                    if (accessToken == null) {
-                      loginBottomSheet(context);
-                    } else {
-                      // handle wishlist functionality
-                    }
-                  },
-                  i: i,
-                  product: product)
-                  );
+                onTap: () {
+                  if (accessToken == null) {
+                    loginBottomSheet(context);
+                  } else {
+                    //handle wishlist functionality
+                  }
+                },
+                product: product,
+                i: i,
+              ));
         }),
       ),
     );
   }
 }
-  

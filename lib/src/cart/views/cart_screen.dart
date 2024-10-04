@@ -7,7 +7,8 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      String? accessToken = Storage().getString('accessToken');
+     String? accessToken = Storage().getString('accessToken');
+
     if (accessToken == null) {
       return const LoginPage();
     }

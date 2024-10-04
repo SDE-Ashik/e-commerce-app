@@ -31,11 +31,9 @@ class PolicyPage extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
-            Text(
-              AppText.kAppCancelationPolicy,
-              textAlign: TextAlign.justify,
-              style: appStyle(13, Kolors.kGray, FontWeight.normal),
-            ),
+            Text(AppText.kAppCancelationPolicy,
+                textAlign: TextAlign.justify,
+                style: appStyle(13, Kolors.kGray, FontWeight.normal)),
             SizedBox(
               height: 12.h,
             ),
@@ -45,11 +43,9 @@ class PolicyPage extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
-           Text(
-              AppText.kAppTerms,
-              textAlign: TextAlign.justify,
-              style: appStyle(13, Kolors.kGray, FontWeight.normal),
-            ),
+            Text(AppText.kAppTerms,
+                textAlign: TextAlign.justify,
+                style: appStyle(13, Kolors.kGray, FontWeight.normal)),
           ],
         ),
       ),

@@ -7,8 +7,10 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class ProductBottomBar extends StatelessWidget {
   const ProductBottomBar({super.key, required this.price, this.onPressed});
+
   final String price;
   final void Function()? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,9 +29,9 @@ class ProductBottomBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                  padding: const EdgeInsets.only(top:4.0),
+                    padding: const EdgeInsets.only(top: 4.0),
                     child: ReusableText(
-                        text: 'Total Price ',
+                        text: 'Total Price',
                         style: appStyle(14, Kolors.kGray, FontWeight.w400)),
                   ),
                   ReusableText(
@@ -38,16 +40,28 @@ class ProductBottomBar extends StatelessWidget {
                 ],
               ),
             ),
-            ElevatedButton(onPressed: onPressed,
-            style:ButtonStyle(backgroundColor: WidgetStateProperty.all(Kolors.kPrimary)) , child:Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Icon(FontAwesome.shopping_bag,size: 16, color: Kolors.kWhite,),
-                SizedBox(width: 8.w,),
-                ReusableText(text: "Checkout", style: appStyle(14, Kolors.kWhite, FontWeight.bold))
-              ],
-            ))
+            ElevatedButton(
+                onPressed: onPressed,
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all(Kolors.kPrimary)
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      FontAwesome.shopping_bag,
+                      size: 16,
+                      color: Kolors.kWhite,
+                    ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    ReusableText(
+                        text: 'Checkout',
+                        style: appStyle(14, Kolors.kWhite, FontWeight.bold)),
+                  ],
+                ))
           ],
         ),
       ),

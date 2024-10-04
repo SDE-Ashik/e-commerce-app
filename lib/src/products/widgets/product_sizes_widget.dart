@@ -1,37 +1,38 @@
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
-import 'package:fashion_app/common/widgets/reusable_text.dart';
-import 'package:fashion_app/const/constants.dart';
 import 'package:fashion_app/src/products/controllers/colors_sizes_notifier.dart';
 import 'package:fashion_app/src/products/controllers/product_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class ColorSelectionWidget extends StatelessWidget {
-  const ColorSelectionWidget({super.key});
+class ProductSizesWidget extends StatelessWidget {
+  const ProductSizesWidget({super.key});
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Consumer<ColorSizesNotifier>(
       builder: (context, controller, child) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: List.generate(
-              context.read<ProductNotifier>().product!.colors.length, (i) {
-            String c = context.read<ProductNotifier>().product!.colors[i];
+              context.read<ProductNotifier>().product!.sizes.length, (i) {
+            String s = context.read<ProductNotifier>().product!.sizes[i];
             return GestureDetector(
               onTap: () {
-                controller.setColor(c);
+                controller.setSizes(s);
               },
               child: Container(
-                padding: EdgeInsets.only(right: 20.w, left: 20.w),
-                margin: EdgeInsets.only(right: 20.w),
+                height: 30.h,
+                width: 45.h,
                 decoration: BoxDecoration(
-                  borderRadius: kRadiusAll,
-                  color: c == controller.color ? Kolors.kPrimary : Kolors.kGrayLight
-                ),
-                child: ReusableText(text: c, style: appStyle(12, Kolors.kWhite, FontWeight.normal)),
+                    color: controller.sizes == s
+                        ? Kolors.kPrimary
+                        : Kolors.kGrayLight,
+                    borderRadius: BorderRadius.circular(5)),
+                    child: Center(
+                      child: Text(s, style: appStyle(20, Kolors.kWhite, FontWeight.bold),),
+                    ),
               ),
             );
           }),

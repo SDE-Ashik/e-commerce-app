@@ -2,7 +2,6 @@ import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
 import 'package:fashion_app/common/widgets/reusable_text.dart';
 import 'package:fashion_app/const/constants.dart';
-import 'package:fashion_app/main.dart';
 import 'package:fashion_app/src/categories/controllers/category_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,24 +29,29 @@ class HomeCategoriesList extends StatelessWidget {
                     .setCategory(category.title, category.id);
                 context.push('/category');
               },
-              child:SizedBox(
+              child: SizedBox(
                 child: Column(
-                  crossAxisAlignment:CrossAxisAlignment.center ,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CircleAvatar(
                       backgroundColor: Kolors.kSecondaryLight,
-                      child: Padding(padding: EdgeInsets.all(4.h),
-                      child: SvgPicture.network(category.imageUrl,width: 40.w,height: 40.h,),),
+                      child: Padding(
+                        padding: EdgeInsets.all(4.h),
+                        child: SvgPicture.network(
+                          category.imageUrl,
+                          width: 40.w,
+                          height: 40.h,
+                        ),
+                      ),
                     ),
+
                     ReusableText(text: category.title, style: appStyle(12, Kolors.kGray, FontWeight.normal))
                   ],
                 ),
-              ) ,
+              ),
             );
-            
-          }
-          ),
+          }),
         ),
       ),
     );

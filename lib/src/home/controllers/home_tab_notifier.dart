@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class HomeTabNotifier with ChangeNotifier {
   QueryType queryType = QueryType.all;
-  String _index = "All";
+  String _index = 'All';
 
   String get index => _index;
 
@@ -12,7 +12,6 @@ class HomeTabNotifier with ChangeNotifier {
     switch (index) {
       case 'All':
         setQueryType(QueryType.all);
-
         break;
       case 'Popular':
         setQueryType(QueryType.popular);
@@ -26,7 +25,6 @@ class HomeTabNotifier with ChangeNotifier {
       case 'Women':
         setQueryType(QueryType.women);
         break;
-
       case 'Kids':
         setQueryType(QueryType.kids);
         break;
@@ -39,6 +37,5 @@ class HomeTabNotifier with ChangeNotifier {
 
   void setQueryType(QueryType q) {
     queryType = q;
-    print(q.name);
   }
 }

@@ -1,12 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fashion_app/common/services/storage.dart';
-import 'package:fashion_app/common/utils/app_routes.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
-import 'package:fashion_app/common/widgets/logout_bottom_sheet.dart';
 import 'package:fashion_app/common/widgets/reusable_text.dart';
-import 'package:fashion_app/main.dart';
-import 'package:fashion_app/src/products/controllers/product_notifer.dart';
+import 'package:fashion_app/src/products/controllers/product_notifier.dart';
 import 'package:fashion_app/src/products/models/products_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,6 +13,7 @@ import 'package:provider/provider.dart';
 class StaggeredTileWidget extends StatelessWidget {
   const StaggeredTileWidget(
       {super.key, required this.i, required this.product, this.onTap});
+
   final int i;
   final Products product;
   final void Function()? onTap;
@@ -26,13 +23,13 @@ class StaggeredTileWidget extends StatelessWidget {
     // String? accessToken = Storage().getString('accessToken');
     return GestureDetector(
       onTap: () {
-        context.read<ProductNotifer>().setProduct(product);
+        context.read<ProductNotifier>().setProuct(product);
         context.push('/product/${product.id}');
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Container(
-          color: Kolors.kWhite,
+          color: Kolors.kOffWhite,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -45,6 +42,8 @@ class StaggeredTileWidget extends StatelessWidget {
                         height: i % 2 == 0 ? 163.h : 180.h,
                         fit: BoxFit.cover,
                         imageUrl: product.imageUrls[0]),
+
+                    ///TODO: handle favorites
                     Positioned(
                         right: 10.h,
                         top: 10.h,
@@ -77,7 +76,7 @@ class StaggeredTileWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           AntDesign.star,
                           color: Kolors.kGold,
                           size: 14,
@@ -86,9 +85,9 @@ class StaggeredTileWidget extends StatelessWidget {
                           width: 5.w,
                         ),
                         ReusableText(
-                          text: product.ratings.toStringAsFixed(1),
-                          style: appStyle(13, Kolors.kGray, FontWeight.normal),
-                        ),
+                            text: product.ratings.toStringAsFixed(1),
+                            style:
+                                appStyle(13, Kolors.kGray, FontWeight.normal))
                       ],
                     )
                   ],
@@ -98,7 +97,7 @@ class StaggeredTileWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 2.w),
                 child: ReusableText(
                     text: '\$ ${product.price.toStringAsFixed(2)}',
-                    style: appStyle(12, Kolors.kDark, FontWeight.w600)),
+                    style: appStyle(17, Kolors.kDark, FontWeight.w500)),
               )
             ],
           ),
